@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#0a0e17" />
+    </linearGradient>
+
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2" />
+    </linearGradient>
+
+    <linearGradient id="accentViolet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Glowing Filters -->
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="glowCard" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+
+    <!-- Grid Pattern -->
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" />
+      <circle cx="40" cy="40" r="1" fill="rgba(56,189,248,0.2)" />
+    </pattern>
+  </defs>
+
+  <style>
+    @keyframes pulseOrb {
+      0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.35; }
+      50% { transform: scale(1.15) translate(20px, -15px); opacity: 0.6; }
+    }
+    @keyframes waveMove {
+      0% { transform: translateX(0); }
+      50% { transform: translateX(-30px); }
+      100% { transform: translateX(0); }
+    }
+    @keyframes barGrow1 {
+      0%, 100% { height: 45px; y: 95px; }
+      50% { height: 75px; y: 65px; }
+    }
+    @keyframes barGrow2 {
+      0%, 100% { height: 80px; y: 60px; }
+      50% { height: 110px; y: 30px; }
+    }
+    @keyframes barGrow3 {
+      0%, 100% { height: 60px; y: 80px; }
+      50% { height: 95px; y: 45px; }
+    }
+    @keyframes nodeFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .orb-anim-1 { animation: pulseOrb 8s ease-in-out infinite; transform-origin: 200px 100px; }
+    .orb-anim-2 { animation: pulseOrb 10s ease-in-out infinite reverse; transform-origin: 1000px 300px; }
+    .chart-bar-1 { animation: barGrow1 4s ease-in-out infinite; }
+    .chart-bar-2 { animation: barGrow2 4.5s ease-in-out infinite 0.5s; }
+    .chart-bar-3 { animation: barGrow3 3.8s ease-in-out infinite 1s; }
+    .card-float { animation: nodeFloat 6s ease-in-out infinite; }
+    .title-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 800; }
+    .subtitle-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 400; }
+    .badge-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 600; }
+  </style>
+
+  <!-- Background Base -->
+  <rect width="1200" height="420" rx="16" fill="url(#bgGrad)" />
+  <rect width="1200" height="420" rx="16" fill="url(#gridPattern)" />
+
+  <!-- Dynamic Glowing Orbs (in background) -->
+  <g opacity="0.45">
+    <circle class="orb-anim-1" cx="180" cy="110" r="160" fill="url(#accentCyan)" filter="url(#glowCyan)" />
+    <circle class="orb-anim-2" cx="1020" cy="280" r="180" fill="url(#accentViolet)" filter="url(#glowCyan)" />
+  </g>
+
+  <!-- Dynamic Background Analytics Charts / Cards -->
+  <g class="card-float" transform="translate(900, 45)" filter="url(#glowCard)" opacity="0.85">
+    <rect width="250" height="170" rx="12" fill="#1e293b" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+    <text x="20" y="32" fill="#94a3b8" font-size="12" class="badge-text" letter-spacing="1">LIVE ANALYTICS</text>
+    <circle cx="225" cy="27" r="4" fill="#10b981" />
+    
+    <!-- Animated Chart Bars -->
+    <rect class="chart-bar-1" x="25" y="95" width="22" height="45" rx="4" fill="#38bdf8" />
+    <rect class="chart-bar-2" x="60" y="60" width="22" height="80" rx="4" fill="#818cf8" />
+    <rect class="chart-bar-3" x="95" y="80" width="22" height="60" rx="4" fill="#c084fc" />
+    <rect class="chart-bar-1" x="130" y="70" width="22" height="70" rx="4" fill="#38bdf8" opacity="0.8" />
+    <rect class="chart-bar-2" x="165" y="45" width="22" height="95" rx="4" fill="#818cf8" />
+    <rect class="chart-bar-3" x="200" y="85" width="22" height="55" rx="4" fill="#34d399" />
+    
+    <!-- Base Axis -->
+    <line x1="20" y1="145" x2="230" y2="145" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+  </g>
+
+  <!-- Animated Stream/Wave Line in background -->
+  <path d="M 0 350 Q 300 300 600 350 T 1200 320" fill="none" stroke="rgba(56,189,248,0.2)" stroke-width="2" stroke-dasharray="6,6" />
+  <path d="M 0 370 Q 300 330 600 370 T 1200 340" fill="none" stroke="rgba(192,132,252,0.2)" stroke-width="1.5" />
+
+  <!-- Foreground Title and Subtitle (Guaranteed Crisp & High Contrast) -->
+  <g transform="translate(80, 0)">
+    <!-- Category Pill -->
+    <g transform="translate(0, 75)">
+      <rect width="270" height="32" rx="16" fill="rgba(56,189,248,0.12)" stroke="rgba(56,189,248,0.4)" stroke-width="1" />
+      <circle cx="16" cy="16" r="4" fill="#38bdf8" />
+      <text x="28" y="21" fill="#38bdf8" font-size="12" class="badge-text" letter-spacing="1.2">CURATED DATA ECOSYSTEM</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="165" fill="url(#textGrad)" font-size="52" class="title-text" letter-spacing="-1">
+      Awesome Data Analytics
+    </text>
+    <text x="0" y="222" fill="#ffffff" font-size="44" class="title-text" letter-spacing="-0.8">
+      Platforms &amp; Engines ⚡
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="268" fill="#94a3b8" font-size="18" class="subtitle-text">
+      The definitive directory of Business Intelligence, Semantic Layers,
+    </text>
+    <text x="0" y="295" fill="#94a3b8" font-size="18" class="subtitle-text">
+      Lakehouse Query Engines, and Cloud Data Analytics Platforms.
+    </text>
+
+    <!-- Feature Pills in Foreground -->
+    <g transform="translate(0, 335)">
+      <!-- Pill 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="135" height="34" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+        <text x="14" y="22" fill="#e2e8f0" font-size="13" class="badge-text">📊 Modern BI</text>
+      </g>
+      <!-- Pill 2 -->
+      <g transform="translate(147, 0)">
+        <rect width="145" height="34" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+        <text x="14" y="22" fill="#e2e8f0" font-size="13" class="badge-text">⚡ OLAP Engines</text>
+      </g>
+      <!-- Pill 3 -->
+      <g transform="translate(304, 0)">
+        <rect width="175" height="34" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+        <text x="14" y="22" fill="#e2e8f0" font-size="13" class="badge-text">🧠 Semantic Layers</text>
+      </g>
+      <!-- Pill 4 -->
+      <g transform="translate(491, 0)">
+        <rect width="170" height="34" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.1)" stroke-width="1" />
+        <text x="14" y="22" fill="#e2e8f0" font-size="13" class="badge-text">🚀 Real-Time SQL</text>
+      </g>
+    </g>
+  </g>
+</svg>
